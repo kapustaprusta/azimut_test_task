@@ -5,7 +5,7 @@
 #include "src/threadpool/threadpool.h"
 
 int main(int argc, char* argv[]) {
-    if (argc < 2 || argc > 3) {
+    if (argc < 2) {
         std::cout << "invalid arguments number" << "\n";
         return 0;
     }
