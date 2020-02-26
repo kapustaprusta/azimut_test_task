@@ -13,12 +13,10 @@ namespace reader {
         file_stream_.close();
     }
 
-    uint32_t TextFileReader::Read(std::vector<uint8_t>& buffer) {
-        std::string tmp_line;
-        std::getline(file_stream_, tmp_line);
-        std::copy(tmp_line.begin(), tmp_line.end(), std::back_inserter(buffer));
+    uint32_t TextFileReader::Read(std::string& buffer) {
+        std::getline(file_stream_, buffer);
 
-        return tmp_line.size();
+        return buffer.size();
     }
 
     bool TextFileReader::IsEOF() const {

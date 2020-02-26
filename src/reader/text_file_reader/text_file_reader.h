@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <fstream>
 
 #include "../reader.h"
@@ -10,9 +9,9 @@ namespace reader {
     class TextFileReader final : public IReader {
         public:
             explicit TextFileReader(const std::string& file_path);
-            ~TextFileReader();
+            ~TextFileReader() final;
 
-            uint32_t Read(std::vector<uint8_t>& buffer) override;
+            uint32_t Read(std::string& buffer) override;
             bool IsEOF() const override;
 
         private:

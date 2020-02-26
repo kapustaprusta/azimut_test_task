@@ -13,7 +13,7 @@ namespace builder {
             explicit CheckerBuilder() = default;
             ~CheckerBuilder() = default;
 
-            std::shared_ptr<task::ITask> Build(const std::string& input_file_path, const defs::TaskType& type);
+            std::shared_ptr<task::ITask> Build(const std::string& input_file_path, const defs::TaskType& type = defs::TaskType::CHECKER);
 
         private:
             std::string MakeOutputFilePath(const std::string& input_file_path);

@@ -13,12 +13,10 @@ namespace writer {
         file_stream_.close();
     }
 
-    uint32_t TextFileWriter::Write(const std::vector<uint8_t>& buffer) {
-        std::string tmp_line;
-        std::copy(buffer.begin(), buffer.end(), std::back_inserter(tmp_line));
-        file_stream_ << tmp_line << std::endl;
+    uint32_t TextFileWriter::Write(const std::string& buffer) {
+        file_stream_ << buffer << std::endl;
 
-        return tmp_line.size();
+        return buffer.size();
     }
 
 } // writer

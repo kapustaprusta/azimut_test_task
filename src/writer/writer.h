@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include <string>
 
 namespace writer {
 
@@ -9,7 +9,7 @@ namespace writer {
             explicit IWRiter() = default;
             virtual ~IWRiter() = default;
 
-            virtual uint32_t Write(const std::vector<uint8_t>& buffer) = 0;
+            virtual uint32_t Write(const std::string& buffer) = 0;
     };
 
 } // writer

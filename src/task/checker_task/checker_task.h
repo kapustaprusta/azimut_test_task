@@ -13,10 +13,10 @@ namespace task {
     class CheckerTask final : public ITask {
         public:
             explicit CheckerTask(const std::shared_ptr<reader::IReader>& reader, const std::shared_ptr<writer::IWRiter>& writer);
-            ~CheckerTask() = default;
+            ~CheckerTask() final = default;
 
-            void Start() ;
-            void Reset();
+            void Start() override ;
+            void Reset() override ;
 
             void SetReader(const std::shared_ptr<reader::IReader>& reader);
             void SetWriter(const std::shared_ptr<writer::IWRiter>& writer);

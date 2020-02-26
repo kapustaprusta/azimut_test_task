@@ -7,7 +7,7 @@ namespace utils {
     inline bool IsFlightInfoEqual(const std::string& flight_info_1, const std::string& flight_info_2) {
         auto l_split_info = [](const std::string& flight_info) -> std::pair<std::string, int> {
             auto prev_char = '\0';
-            // ишим первую цифру номера рейса
+            // ищем первую цифру номера рейса
             for (auto char_idx = 2; char_idx < flight_info.size(); char_idx++) {
                 if (flight_info[char_idx] >= '0' && flight_info[char_idx] <= '9') {
                     if (prev_char == ' ') {

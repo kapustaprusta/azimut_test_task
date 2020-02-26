@@ -16,7 +16,8 @@ int main(int argc, char* argv[]) {
     std::vector<std::shared_ptr<task::ITask>> tasks;
     for (uint32_t arg_idx = 1; arg_idx < argc; arg_idx++) {
         try {
-            tasks.emplace_back(builder->Build(argv[arg_idx], defs::TaskType::CHECKER));
+            // если путь указан неверно будет выбрашено исключение
+            tasks.emplace_back(builder->Build(argv[arg_idx]));
         }
         catch (std::exception& e) {
             std::cout << e.what() << '\n';

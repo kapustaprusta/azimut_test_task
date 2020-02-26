@@ -12,11 +12,9 @@ namespace task {
     }
 
     void CheckerTask::Start() {
-        std::vector<uint8_t> flight_info_buffer;
+        std::string tmp_flight_info;
         while (!reader_->IsEOF()) {
-            reader_->Read(flight_info_buffer);
-            std::string tmp_flight_info(flight_info_buffer.begin(), flight_info_buffer.end());
-            flight_info_buffer.clear();
+            reader_->Read(tmp_flight_info);
 
             bool is_have_equal = false;
             for (const auto& flight_info : flight_info_list_) {
@@ -28,8 +26,10 @@ namespace task {
 
             if (!is_have_equal) {
                 flight_info_list_.emplace_back(tmp_flight_info);
-                writer_->Write(std::vector<uint8_t>(tmp_flight_info.begin(), tmp_flight_info.end()));
+                writer_->Write(tmp_flight_info);
             }
+
+            tmp_flight_info.clear();
         }
     }
 
