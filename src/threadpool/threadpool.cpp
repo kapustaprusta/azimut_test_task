@@ -10,6 +10,10 @@ namespace threadpool {
     }
 
     ThreadPool::ThreadPool(const uint32_t threads_number) {
+        if (threads_number > std::thread::hardware_concurrency()) {
+            throw std::runtime_error("threads number is more than hardware supported");
+        }
+
         is_stop_.store(false);
         tasks_counter_.store(0);
 

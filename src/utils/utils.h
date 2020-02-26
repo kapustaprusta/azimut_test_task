@@ -15,7 +15,7 @@ namespace utils {
                     }
 
                     const auto airlines_code = flight_info.substr(0, char_idx);
-                    const auto flight_number = std::stoi(flight_info.substr(char_idx));
+                    const auto flight_number = std::stoi(flight_info.substr(char_idx, std::string::npos));
 
                     return std::make_pair(airlines_code, flight_number);
                 }

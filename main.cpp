@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
     }
 
     const auto builder = std::make_unique<builder::CheckerBuilder>();
-    const auto thread_pool = std::make_unique<threadpool::ThreadPool>();
+    const auto thread_pool = std::make_unique<threadpool::ThreadPool>(2);
 
     std::vector<std::shared_ptr<task::ITask>> tasks;
     for (uint32_t arg_idx = 1; arg_idx < argc; arg_idx++) {
